@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="Login-New.css">
+</head>
+<body>
+    <section id="login">
+        <div class="container">
+            <h2>Đăng Nhập</h2>
+            <form action="login_process.php" method="POST">
+                <div class="input-group">
+                    <label for="username">Tên Đăng Nhập</label>
+                    <input type="text" id="username" name="username" required placeholder="Nhập tên đăng nhập...">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Mật Khẩu</label>
+                    <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu...">
+                </div>
+
+                <div class="input-group">
+                    <label for="remember-me">
+                        <input type="checkbox" id="remember-me" name="remember_me"> remember me?
+                    </label>
+                </div>
+
+                <button type="submit">Đăng Nhập</button>
+                <p class="switch-form">Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

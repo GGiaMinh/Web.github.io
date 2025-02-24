@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác Nhận Giỏ Hàng</title>
+    <link rel="stylesheet" href="Confirm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Đặt Tour Du Lịch Huế</div>
+            <ul class="menu">
+                <li><a href="TrangChu_ASM.html">Trang chủ</a></li>
+                <li><a href="#tour-list">Các Tour</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+                <li><a href="Login.html">Đăng nhập</a></li>
+                <li><a href="Register.html">Đăng ký</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="cart-confirmation">
+        <h2>Xác Nhận Giỏ Hàng</h2>
+
+        <div class="cart-items">
+            <h3>Danh Sách Sản Phẩm</h3>
+            <div class="cart-item">
+                <img src="/IMG_Booking/tour1.jpg">
+                <p><strong>Tour:</strong> <span class= "tour-name">Tour Đại Nội</span></p>
+                <p><strong>Thời gian:</strong> 1 ngày</p>
+                <p><strong>Giá:</strong> 1.200.000 VND</p>
+                <p><strong>Số lượng:</strong> 1</p>
+                <p><strong>Tổng:</strong> 1.200.000 VND</p>
+            </div>
+            <br>
+
+            <div class="cart-item">
+                <img src="/IMG_Booking/tour6.jpg">
+                <p><strong>Tour:</strong> <span class= "tour-name">Tour Chùa Thiên Mụ</span></p>
+                <p><strong>Thời gian:</strong> 1 ngày</p>
+                <p><strong>Giá:</strong> 800.000 VND</p>
+                <p><strong>Số lượng:</strong> 2</p>
+                <p><strong>Tổng:</strong> 1.600.000 VND</p>
+            </div>
+        </div>
+        <br>
+
+        <div class="combo-selection">
+            <h3>Chọn Combo Ăn Uống (Tùy chọn)</h3>
+            <div class="combo-item">
+                <input type="checkbox" id="combo1" name="combo1">
+                <label for="combo1">Combo 1: Cơm Trưa (150.000 VND)</label>
+            </div>
+            <div class="combo-item">
+                <input type="checkbox" id="combo2" name="combo2">
+                <label for="combo2">Combo 2: Bữa Tối (250.000 VND)</label>
+            </div>
+            <div class="combo-item">
+                <input type="checkbox" id="combo3" name="combo3">
+                <label for="combo3">Combo 3: Nước Uống (50.000 VND)</label>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <h3>Tóm Tắt Giỏ Hàng</h3>
+            <p><strong>Tổng Tiền Sản Phẩm:</strong> 2.800.000 VND</p>
+            <p><strong>Phí Dịch Vụ:</strong> 50.000 VND</p>
+            <p><strong>Tổng Thanh Toán:</strong> 2.850.000 VND</p>
+        </div>
+
+        <div class="customer-info">
+            <h3>Thông Tin Khách Hàng</h3>
+            <p><strong>Họ Tên:</strong> Nguyễn Gia A</p>
+            <p><strong>Email:</strong> nguyen.giaa@email.com</p>
+            <p><strong>Số Điện Thoại:</strong> 0123456789</p>
+            <p><strong>Địa Chỉ:</strong> 123 Đường ABC, Huế</p>
+        </div>
+
+        <div class="action-buttons">
+            <button class="confirm-btn">Xác Nhận Giỏ Hàng</button>
+            <button class="back-btn" onclick="window.location.href='cart.html'">Quay Lại Giỏ Hàng</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; PS43419_NguyenGiaMinh_ASM Cung thành Huế.</p>
+    </footer>
+
+</body>
+</html>
