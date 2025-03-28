@@ -3,59 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt Tour Du Lịch Huế</title>
-    <link rel="stylesheet" href="Booking.css">
+    <title>Chi Tiết Tour Đại Nội</title>
+    <link rel="stylesheet" href="Details.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="Booking.js"></script>
+    <script src="Details.js"></script>
 </head>
 <body>
     <script>
         window.onload = function(){
-            onloadTours()
+            onloadTourDetails()
         }
     </script>
+
     <header>
         <nav class="navbar">
-            <div class="logo">Đặt Tour Du Lịch Nội Thành Huế</div>
+            <div class="logo">Chi tiết tour</div>
             <ul class="menu">
                 <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="#tour-list">Các Tour</a></li>
-                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Liên Hệ</a></li>
-                <li><a href="Login.html">Đăng nhập</a></li>
-                <li><a href="Register.html">Đăng ký</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-    <section id="search">
-        <h2>Tìm Tour</h2>
-        <form>
-            <input type="text" placeholder="Tìm kiếm tour theo tên..." name="search">
-            <button type="submit">Tìm Kiếm</button>
-        </form>
-    </section>
-
-    <section id="tours" class="content">
-        <h2>Các Tour Du Lịch</h2>
-        <div id="tour-list"></div>
-    </section>
-    
-
-    <section id="faq">
-        <h2>Câu Hỏi Thường Gặp (FAQ)</h2>
-        <dl>
-            <dt>1. Làm thế nào để đặt tour?</dt>
-            <dd>Chọn tour và ấn đặt tour.</dd>
-            <dt>2. Tôi có thể hủy tour không?</dt>
-            <dd>Có thể.</dd>
-        </dl>
+    <section class="tour-detail">
     </section>
     </main>
-
+    
     <footer id="contact" class="contact-footer">
         <div id="contact" class="footer-content">
             <div class="footer-column">
@@ -80,6 +55,5 @@
         </div>
         <p>&copy; PS43419_NguyenGiaMinh_ASM Cung thành Huế.</p>
     </footer>
-    
 </body>
 </html>
