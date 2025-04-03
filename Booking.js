@@ -171,8 +171,8 @@ const tours = [
     {
         id: 14,
         img: "IMG_Booking/tour14.jpg",
-        name: "TTour Đồi Vọng Cảnhi",
-        desc: "KNgắm toàn cảnh sông Hương và thành phố Huế từ đồi Vọng Cảnh, nơi lý tưởng để chụp ảnh và thư giãn.",
+        name: "Tour Đồi Vọng Cảnhi",
+        desc: "Ngắm toàn cảnh sông Hương và thành phố Huế từ đồi Vọng Cảnh, nơi lý tưởng để chụp ảnh và thư giãn.",
         duration: "1 buổi sáng",
         price: "600.000 VND",
         rating: 4.5,
@@ -196,10 +196,19 @@ const tours = [
     },
 ];
 
-function onloadTours() {
+document.addEventListener("DOMContentLoaded", function () {
+    onloadTours();
+
+    document.querySelector("#search input").addEventListener("input", function (event) {
+        const searchText = event.target.value.toLowerCase();
+        const filteredTours = tours.filter(tour => tour.name.toLowerCase().includes(searchText));
+        onloadTours(filteredTours);
+    });
+});
+
+function onloadTours(tourList = tours) {
     let content = "";
-    
-    tours.forEach(tour => {
+    tourList.forEach(tour => {
         content += `
             <div class="tour">
                 <img src="${tour.img}" alt="${tour.name}">
@@ -213,13 +222,8 @@ function onloadTours() {
                     <div class="stars">${"⭐".repeat(Math.round(tour.rating))}</div>
                     <p>${tour.rating}/5 (${tour.reviews} Đánh Giá)</p>
                     <p><strong>Đánh giá từ:</strong> ${tour.reviewer}, ${tour.reviewDate}</p>
-                    <p><strong>Nội Dung:</strong>${tour.reviewContentContent}</p>
-                    
-                <div class="admin-reply">
-                        <p><strong>Quản trị viên:</strong> Cảm cà là ơn anh/chị!!!</p>
-                    </div>
+                    <p><strong>Nội Dung:</strong> ${tour.reviewContent}</p>
                 </div>
-
                 <div class="tour-buttons">
                     <a href="Details.html"><button>Chi Tiết</button></a>
                     <a href="Confirm.html"><button>Đặt Tour</button></a>
@@ -227,7 +231,7 @@ function onloadTours() {
             </div> 
         `;
     });
-    
     document.getElementById("tour-list").innerHTML = content;
 }
+
 
