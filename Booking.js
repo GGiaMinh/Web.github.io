@@ -122,7 +122,7 @@ const tours = [
         name: "Tour Lăng Gia Long",
         desc: "Tham quan lăng mộ của vị vua đầu tiên của triều Nguyễn.",
         duration: "1 ngày",
-        price: "1.5500.000 VND",
+        price: "1.500.000 VND",
         rating: 4.5,
         reviews: 100,
         reviewer: "Nguyễn Gia A",
@@ -171,7 +171,7 @@ const tours = [
     {
         id: 14,
         img: "IMG_Booking/tour14.jpg",
-        name: "Tour Đồi Vọng Cảnhi",
+        name: "Tour Đồi Vọng Cảnh",
         desc: "Ngắm toàn cảnh sông Hương và thành phố Huế từ đồi Vọng Cảnh, nơi lý tưởng để chụp ảnh và thư giãn.",
         duration: "1 buổi sáng",
         price: "600.000 VND",
@@ -196,42 +196,109 @@ const tours = [
     },
 ];
 
-document.addEventListener("DOMContentLoaded", function () {
-    onloadTours();
-
-    document.querySelector("#search input").addEventListener("input", function (event) {
-        const searchText = event.target.value.toLowerCase();
-        const filteredTours = tours.filter(tour => tour.name.toLowerCase().includes(searchText));
-        onloadTours(filteredTours);
-    });
-});
-
+// Hàm hiển thị danh sách tour
 function onloadTours(tourList = tours) {
     let content = "";
     tourList.forEach(tour => {
         content += `
-            <div class="tour">
-                <img src="${tour.img}" alt="${tour.name}">
-                <h3>${tour.name}</h3>
-                <p>${tour.desc}</p>
-                <p class="details">Thời gian: ${tour.duration} | Giá: ${tour.price}</p>
-                <label for="review-toggle-${tour.id}" class="view-details">Xem Đánh Giá</label>
-                <input type="checkbox" id="review-toggle-${tour.id}" class="review-toggle">
-                <div class="rating">
-                    <h4>Đánh Giá Tour</h4>
-                    <div class="stars">${"⭐".repeat(Math.round(tour.rating))}</div>
-                    <p>${tour.rating}/5 (${tour.reviews} Đánh Giá)</p>
-                    <p><strong>Đánh giá từ:</strong> ${tour.reviewer}, ${tour.reviewDate}</p>
-                    <p><strong>Nội Dung:</strong> ${tour.reviewContent}</p>
+            <div class="tour" data-tour-id="${tour.id}">
+                <div class="tour-img">
+                    <img src="${tour.img}" alt="${tour.name}">
                 </div>
-                <div class="tour-buttons">
-                    <a href="Details.html"><button>Chi Tiết</button></a>
-                    <a href="Confirm.html"><button>Đặt Tour</button></a>
+                <div class="tour-info">
+                    <h3>${tour.name}</h3>
+                    <p>${tour.desc}</p>
+                    <p class="details">Thời gian: ${tour.duration} | Giá: ${tour.price}</p>
+                    <p class="rating">Đánh giá: ${tour.rating} ⭐ (${tour.reviews} đánh giá)</p>
                 </div>
-            </div> 
+                <div class="tour-overlay">
+                    <button onclick="viewDetails(${tour.id})">Xem chi tiết</button>
+                </div>
+            </div>
         `;
     });
     document.getElementById("tour-list").innerHTML = content;
 }
 
+// Hàm cập nhật số lượng giỏ hàng trên navbar
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cart-count').textContent = totalItems;
+}
 
+// Hàm xử lý khi nhấn nút Chi Tiết
+function viewDetails(tourId) {
+    const isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn")) || false;
+
+    if (!isLoggedIn) {
+        // Lưu tourId để chuyển hướng sau khi đăng nhập
+        localStorage.setItem("redirectToTourId", tourId);
+        alert("Bạn cần đăng nhập để xem chi tiết tour!");
+        window.location.href = "Login.html";
+    } else {
+        window.location.href = `Details.html?tourId=${tourId}`;
+    }
+}
+
+// Hàm lọc danh sách tour
+function filterTours() {
+    let filteredTours = [...tours];
+
+    // Lọc theo giá
+    const filterPrice = document.getElementById("filter-price").value;
+    if (filterPrice === "low-to-high") {
+        filteredTours.sort((a, b) => parseFloat(a.price.replace(/[^0-9]/g, "")) - parseFloat(b.price.replace(/[^0-9]/g, "")));
+    } else if (filterPrice === "high-to-low") {
+        filteredTours.sort((a, b) => parseFloat(b.price.replace(/[^0-9]/g, "")) - parseFloat(a.price.replace(/[^0-9]/g, "")));
+    }
+
+    // Lọc theo thời gian
+    const filterDuration = document.getElementById("filter-duration").value;
+    if (filterDuration === "half-day") {
+        filteredTours = filteredTours.filter(tour => tour.duration.toLowerCase().includes("nửa ngày"));
+    } else if (filterDuration === "one-day") {
+        filteredTours = filteredTours.filter(tour => tour.duration.toLowerCase().includes("1 ngày"));
+    } else if (filterDuration === "two-days") {
+        filteredTours = filteredTours.filter(tour => tour.duration.toLowerCase().includes("2 ngày"));
+    }
+
+    // Hiển thị danh sách tour đã lọc
+    onloadTours(filteredTours);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    onloadTours();
+
+    document.getElementById("filter-price").addEventListener("change", filterTours);
+    document.getElementById("filter-duration").addEventListener("change", filterTours);
+
+    // Tìm kiếm tour
+    const searchInput = document.querySelector("#search input");
+    searchInput.addEventListener("input", function (event) {
+        const searchText = event.target.value.toLowerCase();
+        const filteredTours = tours.filter(tour => tour.name.toLowerCase().includes(searchText));
+        onloadTours(filteredTours);
+    });
+
+    updateCartCount();
+});
+
+// Hiệu ứng scroll reveal
+document.addEventListener("DOMContentLoaded", function () {
+    const revealElements = document.querySelectorAll(".scroll-reveal");
+
+    function revealOnScroll() {
+        revealElements.forEach((element) => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (elementTop < windowHeight - 50) {
+                element.classList.add("show");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+});

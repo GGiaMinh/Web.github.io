@@ -11,28 +11,39 @@
 </head>
 <body>
     <script>
-        window.onload = function(){
-            onloadTourDetails()
+        window.onload = function() {
+            onloadTourDetails();
         }
     </script>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Chi tiết tour</div>
-            <ul class="menu">
-                <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="#contact">Liên Hệ</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar">
+        <div class="logo">CHI TIẾT TOUR</div>
+        <ul class="menu">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="#tour-list">Danh sách tour</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+            <li>
+                <a href="Cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </li>
+        </ul>
+        <div class="user-info">
+            <!-- Nội dung sẽ được thêm động qua JavaScript -->
+        </div>
+    </nav>
+</header>
 
     <main>
-    <section class="tour-detail">
-    </section>
+        <section class="tour-detail content scroll-reveal">
+            <p>Đang tải thông tin chi tiết tour...</p>
+        </section>
     </main>
     
     <footer id="contact" class="contact-footer">
-        <div id="contact" class="footer-content">
+        <div class="footer-content">
             <div class="footer-column">
                 <h4>LIÊN HỆ</h4>
                 <ul>

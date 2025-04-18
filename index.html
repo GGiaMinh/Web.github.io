@@ -6,53 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khám phá Cung thành Huế</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <script src="index.js"></script>
 </head>
 
-<body>
-    <script>
-        window.onload = function(){
-            onloadPlaces(), onloadHistory(), onloadCuisine(), onloadEvents()
-        }
-    </script>
-    
+<body class="content scroll-reveal">
+
     <header>
         <nav class="navbar">
-            <div class="logo">CUNG THÀNH HUẾ</div>
+            <div class="logo">TRANG CHỦ</div>
             <ul class="menu">
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#explore">Khám phá</a></li>
-                <li><a href="#history">Lịch sử</a></li>
-                <li><a href="#events">Sự kiện</a></li>
-                <li><a href="#cuisine">Ẩm thực</a></li>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="Booking.html">Danh sách tour</a></li>
                 <li><a href="#contact">Liên hệ</a></li>
-                <li><a href="Booking.html">Đặt tour</a></li>
+                <li>
+                    <a href="Cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
             </ul>
+            <div class="user-info">
+            </div>
         </nav>
     </header>
 
     <div class="banner">
-        <div class="image-container">
-            <img src="IMG/cungdinhhue.jpg" alt="Cung Đình Huế 1">
-            <img src="IMG/cungdinhhue3.jpg" alt="Cung Đình Huế 2">
-            <img src="IMG/cungdinhhue2.jpg" alt="Cung Đình Huế 3">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="IMG/cungdinhhue.jpg" alt="Cung Đình Huế 1">
+                </div>
+                <div class="slide">
+                    <img src="IMG/cungdinhhue3.jpg" alt="Cung Đình Huế 2">
+                </div>
+                <div class="slide">
+                    <img src="IMG/cungdinhhue2.jpg" alt="Cung Đình Huế 3">
+                </div>
+            </div>
+            <!-- Nút điều hướng -->
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </div>
 
     <main>
-        <section class="intro">
-            <h1>Di sản văn hóa thế giới</h1>
-            <p>
-                Cung thành Huế - trung tâm lịch sử, văn hóa, và nghệ thuật của Việt Nam.
-                Khám phá nét đẹp cổ kính và tinh hoa triều đại nhà Nguyễn tại nơi đây.
-            </p>
-            <a href="#explore" class="btn">Khám phá ngay</a>
-        </section>
-        <br>
-
         <section id="explore" class="content">
             <h2>Khám phá các địa danh</h2>
             <div class="places" id="dsdd">      
@@ -114,5 +115,4 @@
     </footer>
     
 </body>
-
 </html>

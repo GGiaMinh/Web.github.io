@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xác Nhận Giỏ Hàng</title>
-    <link rel="stylesheet" href="Confirm.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="Details.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="Confirm.js" defer></script>
+    <script src="Cart.js" defer></script>
 </head>
 <body>
     <!-- Header -->
     <header>
         <nav class="navbar">
-            <div class="logo">TRANG CHỦ</div>
+            <div class="logo">Giỏ Hàng</div>
             <ul class="menu">
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="Booking.html">Danh sách tour</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
                 <li>
                     <a href="Cart.html" class="cart-icon">
                         <i class="fas fa-shopping-cart"></i>
@@ -26,58 +25,25 @@
                 </li>
             </ul>
             <div class="user-info">
-                <!-- Nội dung sẽ được thêm động qua JavaScript -->
             </div>
         </nav>
     </header>
-    
-    <!-- Main Content -->
+
     <main>
-        <section id="cart-confirmation" class="content scroll-reveal">
-            <h2>Xác Nhận Giỏ Hàng</h2>
-
+        <section id="cart" class="content scroll-reveal">
+            <h2>Giỏ Hàng Của Bạn</h2>
             <div class="cart-items">
-                <h3>Danh Sách Sản Phẩm</h3>
+                <p>Đang tải giỏ hàng...</p>
             </div>
-
-            <!-- Tóm tắt giỏ hàng -->
             <div class="cart-summary">
                 <h3>Tóm Tắt Giỏ Hàng</h3>
+                <p><strong>Tổng Tiền:</strong> <span id="total-price">0</span> VND</p>
             </div>
-
             <div class="cart-actions">
-                <!-- Nút xác nhận giỏ hàng sẽ được thêm động qua JavaScript -->
-            </div>
-
-            <!-- Chọn combo ăn uống -->
-            <div class="combo-selection">
-                <h3>Chọn Combo Ăn Uống (Tùy chọn)</h3>
-                <div class="combo-item">
-                    <input type="checkbox" id="combo1" name="combo1">
-                    <label for="combo1">Combo 1: Cơm Trưa (150.000 VND)</label>
-                </div>
-                <div class="combo-item">
-                    <input type="checkbox" id="combo2" name="combo2">
-                    <label for="combo2">Combo 2: Bữa Tối (250.000 VND)</label>
-                </div>
-                <div class="combo-item">
-                    <input type="checkbox" id="combo3" name="combo3">
-                    <label for="combo3">Combo 3: Nước Uống (50.000 VND)</label>
-                </div>
-            </div>
-
-            <!-- Thông tin khách hàng -->
-            <div class="customer-info">
-            </div>
-
-            <!-- Nút hành động -->
-            <div class="action-buttons">
-                <button class="confirm-btn" onclick="confirmOrder()">Xác Nhận Giỏ Hàng</button>
-                <button class="back-btn" onclick="window.location.href='Cart.html'">Quay Lại Giỏ Hàng</button>
             </div>
         </section>
     </main>
-    
+
     <!-- Footer -->
     <footer id="contact" class="contact-footer">
         <div class="footer-content">
@@ -100,8 +66,7 @@
             <div id="map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.1447151367406!2d107.56252580997983!3d16.468208384204956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a6cf9a7ee303%3A0x6a2e98403a998f1b!2zTMOqIER14bqpbiwgVHAuIEh14bq_LCBUaMOgbmggcGjhu5EgSHXhur8sIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1739968874006!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </div>
+        </div> 
         <p>&copy; PS43419_NguyenGiaMinh_ASM Cung thành Huế.</p>
     </footer>
 </body>
-</html>

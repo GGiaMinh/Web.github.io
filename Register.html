@@ -5,72 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Ký</title>
     <link rel="stylesheet" href="Login-New.css">
+    <script src="Register.js" defer></script>
 </head>
 <body>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector("form");
-    
-            form.addEventListener("submit", function (event) {
-                const username = document.getElementById("username").value.trim();
-                const email = document.getElementById("email").value.trim();
-                const password = document.getElementById("password").value.trim();
-                const confirmPassword = document.getElementById("confirm-password").value.trim();
-    
-                if (username === "" || email === "" || password === "" || confirmPassword === "") {
-                    alert("Vui lòng điền đầy đủ thông tin đăng ký.");
-                    event.preventDefault();
-                    return;
-                }
-    
-                if (!email.match(/^\S+@\S+\.\S+$/)) {
-                    alert("Vui lòng nhập địa chỉ email hợp lệ.");
-                    event.preventDefault();
-                    return;
-                }
-    
-                if (password.length < 6) {
-                    alert("Mật khẩu phải có ít nhất 6 ký tự.");
-                    event.preventDefault();
-                    return;
-                }
-    
-                if (password !== confirmPassword) {
-                    alert("Mật khẩu xác nhận không khớp.");
-                    event.preventDefault();
-                }
-            });
-        });
-    </script>
-    
     <section id="register">
         <div class="container">
             <h2>Đăng Ký</h2>
-            <form action="register_process.php" method="POST">
+            <form method="POST">
                 <div class="input-group">
-                    <label for="username">Tên Đăng Nhập</label>
-                    <input type="text" id="username" name="username" required placeholder="Nhập tên đăng nhập...">
+                    <label for="fullname">Họ Và Tên</label>
+                    <input type="text" id="fullname" name="fullname" required placeholder="Nhập họ và tên đầy đủ...">
+                    <div class="form-message-name"></div>
                 </div>
 
                 <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required placeholder="Nhập email...">
+                    <label for="username">Tên Đăng Nhập</label>
+                    <input type="text" id="username" name="username" required placeholder="Nhập tên đăng nhập...">
+                    <div class="form-message-username"></div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="phone">Số Điện Thoại</label>
+                    <input type="text" id="phone" name="phone" required placeholder="Nhập số điện thoại...">
+                    <div class="form-message-phone"></div>
                 </div>
 
                 <div class="input-group">
                     <label for="password">Mật Khẩu</label>
                     <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu...">
+                    <div class="form-message-password"></div>
                 </div>
 
                 <div class="input-group">
-                    <label for="confirm-password">Xác Nhận Mật Khẩu</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Xác nhận mật khẩu...">
+                    <label for="password_confirmation">Xác Nhận Mật Khẩu</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation" required placeholder="Xác nhận mật khẩu...">
+                    <div class="form-message-password-confi"></div>
                 </div>
 
-                <button type="submit">Đăng Ký</button>
-                <p class="switch-form">Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+                <div class="input-group">
+                    <input type="checkbox" id="checkbox-signup" name="checkbox-signup">
+                    <label for="checkbox-signup">Tôi đồng ý với các điều khoản và chính sách</label>
+                    <div class="form-message-checkbox"></div>
+                </div>
+
+                <button type="submit" id="signupButton">Đăng Ký</button>
+                <p class="switch-form">Đã có tài khoản? <a href="Login.html">Đăng nhập ngay</a></p>
             </form>
         </div>
     </section>
+
+    <!-- Container cho thông báo toast -->
+    <div id="toast"></div>
 </body>
 </html>

@@ -5,44 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập</title>
     <link rel="stylesheet" href="Login-New.css">
+    <script src="Login.js" defer></script>
 </head>
 <body>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector("form");
-            
-            form.addEventListener("submit", function (event) {
-                const username = document.getElementById("username").value.trim();
-                const password = document.getElementById("password").value.trim();
-    
-                if (username === "" || password === "") {
-                    alert("Vui lòng điền đầy đủ thông tin đăng nhập.");
-                    event.preventDefault(); // Ngăn chặn gửi form nếu có lỗi
-                }
-            });
-        });
-    </script>
-    
     <section id="login">
         <div class="container">
             <h2>Đăng Nhập</h2>
-            <form action="login_process.php" method="POST">
+            <form id="login-form">
                 <div class="input-group">
                     <label for="username">Tên Đăng Nhập</label>
-                    <input type="text" id="username" name="username" required placeholder="Nhập tên đăng nhập...">
+                    <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập...">
+                    <div class="form-message-username"></div> <!-- Thêm phần tử này -->
                 </div>
-
+            
                 <div class="input-group">
                     <label for="password">Mật Khẩu</label>
-                    <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu...">
+                    <input type="password" id="password" name="password" placeholder="Nhập mật khẩu...">
+                    <div class="form-message-password"></div> <!-- Thêm phần tử này -->
                 </div>
-
+            
                 <div class="input-group">
                     <label for="remember-me">
                         <input type="checkbox" id="remember-me" name="remember_me"> remember me?
                     </label>
                 </div>
-
+            
                 <button type="submit">Đăng Nhập</button>
                 <p class="switch-form">Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
             </form>

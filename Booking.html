@@ -18,15 +18,20 @@
     </script>
     <header>
         <nav class="navbar">
-            <div class="logo">Đặt Tour Du Lịch Nội Thành Huế</div>
+            <div class="logo">ĐẶT TOUR</div>
             <ul class="menu">
                 <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="#tour-list">Các Tour</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Liên Hệ</a></li>
-                <li><a href="Login.html">Đăng nhập</a></li>
-                <li><a href="Register.html">Đăng ký</a></li>
+                <li><a href="#tour-list">Danh sách tour</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+                <li>
+                    <a href="Cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
             </ul>
+            <div class="user-info">
+            </div>
         </nav>
     </header>
 
@@ -35,7 +40,27 @@
             <input type="text" placeholder="Tìm kiếm tour..." />    
         </div>
 
-    <section id="tours" class="content">
+        <section id="filter">
+            <h3>Lọc Tour</h3>
+            <div class="filter-options">
+                <label for="filter-price">Lọc theo giá:</label>
+                <select id="filter-price">
+                    <option value="default">Mặc định</option>
+                    <option value="low-to-high">Giá: Thấp đến cao</option>
+                    <option value="high-to-low">Giá: Cao đến thấp</option>
+                </select>
+        
+                <label for="filter-duration">Lọc theo thời gian:</label>
+                <select id="filter-duration">
+                    <option value="default">Mặc định</option>
+                    <option value="half-day">Nửa ngày</option>
+                    <option value="one-day">1 ngày</option>
+                    <option value="two-days">2 ngày</option>
+                </select>
+            </div>
+        </section>
+
+    <section id="tours" class="content scroll-reveal">
         <h2>Các Tour Du Lịch</h2>
         <div id="tour-list"></div>
     </section>
@@ -76,6 +101,7 @@
         </div>
         <p>&copy; PS43419_NguyenGiaMinh_ASM Cung thành Huế.</p>
     </footer>
+    <button id="backToTop">▲</button>
     
 </body>
 </html>
